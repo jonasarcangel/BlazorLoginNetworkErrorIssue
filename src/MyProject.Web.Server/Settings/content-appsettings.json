@@ -1,0 +1,93 @@
+{
+  "ContentAppSettings": {
+    "RoleWeightSettings": [
+      {
+        "Role": "Admin",
+        "Weight": 200
+      },
+      {
+        "Role": "Manager",
+        "Weight": 200
+      },
+      {
+        "Role": "Editor",
+        "Weight": 100
+      },
+      {
+        "Role": "Author",
+        "Weight": 1
+      },
+      {
+        "Role": "Contributor",
+        "Weight": 1
+      },
+      {
+        "Role": "Moderator",
+        "Weight": 10
+      },
+      {
+        "Role": "Member",
+        "Weight": 1
+      },
+      {
+        "Role": "Subscriber",
+        "Weight": 1
+      },
+      {
+        "Role": "User",
+        "Weight": 1
+      }
+    ],
+    "PageSizeSettings": [
+      {
+        "Module": "MyProject.Articles",
+        "Type": "Article",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Articles",
+        "Type": "Comments",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Blogs",
+        "Type": "Blog",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Blogs",
+        "Type": "Post",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Blogs",
+        "Type": "Comment",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Forums",
+        "Type": "Forum",
+        "PageSize": 20
+      },
+      {
+        "Module": "MyProject.Forums",
+        "Type": "Topic",
+        "PageSize": 20
+      },
+      {
+        "Module": "MyProject.Forums",
+        "Type": "Post",
+        "PageSize": 20
+      },
+      {
+        "Module": "MyProject.Forums",
+        "Type": "Comment",
+        "PageSize": 10
+      },
+      {
+        "Module": "MyProject.Messages",
+        "PageSize": 10
+      }
+    ]
+  }
+}

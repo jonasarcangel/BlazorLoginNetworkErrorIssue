@@ -1,0 +1,58 @@
+{
+  "SecurityAppSettings": {
+    "DefaultRoleUsers": [
+      {
+        "Role": "Admin",
+        "Users": ["admin"]
+      },
+      {
+        "Role": "Manager",
+        "Users": ["admin"]
+      }
+    ],
+    "DefaultPermissions": [
+      "MyProject.Admin:Menu,View,Admin",
+      "MyProject.Articles:Menu,View,Guest",
+      "MyProject.Articles:Admin,View,Admin",
+      "MyProject.Articles:Category,Add,Admin",
+      "MyProject.Articles:Article,View,Guest",
+      "MyProject.Articles:Article,Add,User",
+      "MyProject.Articles:Comment,View,Guest",
+      "MyProject.Articles:Comment,Add,User",
+      "MyProject.Blogs:Menu,View,Guest",
+      "MyProject.Blogs:Blog,View,Guest",
+      "MyProject.Blogs:Blog,Add,User",
+      "MyProject.Blogs:Post,View,Guest",
+      "MyProject.Blogs:Post,Add,User",
+      "MyProject.Blogs:Comment,View,Guest",
+      "MyProject.Blogs:Comment,Add,User",
+      "MyProject.Forums:Menu,View,Guest",
+      "MyProject.Forums:Admin,View,Admin",
+      "MyProject.Forums:Forum,Add,Admin",
+      "MyProject.Forums:Forum,Add,Manager",
+      "MyProject.Forums:Forum,Edit,Admin",
+      "MyProject.Forums:Forum,Edit,Manager",
+      "MyProject.Forums:Forum,Delete,Admin",
+      "MyProject.Forums:Forum,Delete,Manager",
+      "MyProject.Forums:Topic,Add,User",
+      "MyProject.Forums:Topic,Edit,Admin",
+      "MyProject.Forums:Topic,Edit,Manager",
+      "MyProject.Forums:Topic,Delete,Admin",
+      "MyProject.Forums:Topic,Delete,Manager",
+      "MyProject.Forums:Topic,Vote,User",
+      "MyProject.Forums:Post,Add,User",
+      "MyProject.Forums:Post,Edit,Admin",
+      "MyProject.Forums:Post,Edit,Manager",
+      "MyProject.Forums:Post,Delete,Admin",
+      "MyProject.Forums:Post,Delete,Manager",
+      "MyProject.Forums:Post,Vote,User",
+      "MyProject.Forums:Comment,Add,User",
+      "MyProject.Forums:Comment,Edit,Admin",
+      "MyProject.Forums:Comment,Edit,Manager",
+      "MyProject.Forums:Comment,Delete,Admin",
+      "MyProject.Forums:Comment,Delete,Manager",
+      "MyProject.Forums:Comment,Vote,User",
+      "MyProject.Messages:Menu,View,User"
+    ]
+  }
+}
