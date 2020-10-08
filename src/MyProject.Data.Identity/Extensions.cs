@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MyProject.Data.Identity
 {
@@ -50,6 +51,8 @@ namespace MyProject.Data.Identity
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationIdentityDbContext>();
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
         }
 
         public static void UpdateMyProjectIdentityDatabase(this IApplicationBuilder app)

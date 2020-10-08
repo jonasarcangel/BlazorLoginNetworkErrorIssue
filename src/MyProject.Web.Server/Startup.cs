@@ -38,9 +38,6 @@ namespace MyProject.Web.Server
             services.AddMyProjectIdentity(Configuration);
             services.AddMyProjectDataProvider(Configuration);
 
-            services.AddAuthentication()
-            .AddIdentityServerJwt();
-
             // MyProject service additions
             // https://docs.microsoft.com/en-us/aspnet/core/security/blazor/webassembly/hosted-with-identity-server?view=aspnetcore-3.1&tabs=visual-studio
             services.Configure<IdentityOptions>(options =>
