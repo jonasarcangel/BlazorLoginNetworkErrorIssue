@@ -49,8 +49,13 @@ namespace MyProject.Data.Identity
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationIdentityDbContext>();
+            services.AddIdentityServer(options =>
+            {
+                options.IssuerUri = "https://167.172.118.170/";
+
+            })
+                .AddApiAuthorization<ApplicationUser,
+                ApplicationIdentityDbContext>(); 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
         }

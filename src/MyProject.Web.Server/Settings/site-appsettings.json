@@ -8,7 +8,7 @@
         "Icon": "fas fa-cogs",
         "Link": "/admin",
         "Permission": "MyProject.Admin",
-        "Enabled": true
+        "Enabled": false
       },
       {
         "Order": "01",
@@ -26,7 +26,7 @@
         "Icon": "fas fa-newspaper",
         "Link": "/articles",
         "Permission": "MyProject.Articles",
-        "Enabled": true
+        "Enabled": false
       },
       {
         "Order": "03",
@@ -35,7 +35,7 @@
         "Icon": "fas fa-blog",
         "Link": "/blogs",
         "Permission": "MyProject.Blogs",
-        "Enabled": true
+        "Enabled": false
       },
       {
         "Order": "04",
@@ -62,7 +62,7 @@
         "Icon": "fa fa-comments",
         "Link": "/forums",
         "Permission": "MyProject.Forums",
-        "Enabled": true
+        "Enabled": false
       },
       {
         "Order": "07",
@@ -80,7 +80,7 @@
         "Icon": "fa fa-envelope",
         "Link": "/messages",
         "Permission": "MyProject.Messages",
-        "Enabled": true
+        "Enabled": false
       },
       {
         "Order": "09",
