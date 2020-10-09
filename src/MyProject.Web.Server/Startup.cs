@@ -19,6 +19,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Claims;
+using IdentityServer4.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace MyProject.Web.Server
 {
@@ -114,6 +116,13 @@ namespace MyProject.Web.Server
             app.UpdateMyProjectApplicationDatabase();
             services.UseMyProjectSecurity(Configuration);
 
+            app.Use(async (ctx, next) =>
+            {
+                ctx.Request.Scheme = "http";
+                ctx.Request.Host = new HostString("167.172.118.170");
+                await next();
+            });
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
