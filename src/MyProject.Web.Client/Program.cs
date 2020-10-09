@@ -38,7 +38,6 @@ namespace MyProject.Web.Client
             builder.Services.AddMessagesServices();
             builder.Services.AddShellServices();
 
-            builder.Services.AddApiAuthorization();
             //builder.Services.AddOidcAuthentication(options =>
             //{
             //    //options.ProviderOptions.Authority = "https://localhost:5001/";
