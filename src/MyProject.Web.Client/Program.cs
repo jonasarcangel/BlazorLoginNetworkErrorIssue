@@ -38,13 +38,13 @@ namespace MyProject.Web.Client
             builder.Services.AddMessagesServices();
             builder.Services.AddShellServices();
 
-            //builder.Services.AddOidcAuthentication(options =>
-            //{
-            //    //options.ProviderOptions.Authority = "https://localhost:5001/";
-            //    // Configure your authentication provider options here.
-            //    // For more information, see https://aka.ms/blazor-standalone-auth
-            //    builder.Configuration.Bind("oidc", options.ProviderOptions);
-            //});
+            builder.Services.AddOidcAuthentication(options =>
+            {
+                options.ProviderOptions.Authority = "http://167.172.118.170/";
+                // Configure your authentication provider options here.
+                // For more information, see https://aka.ms/blazor-standalone-auth
+                builder.Configuration.Bind("oidc", options.ProviderOptions);
+            });
             // End MyProject.Web.Client Updates
 
             await builder.Build().RunAsync();
