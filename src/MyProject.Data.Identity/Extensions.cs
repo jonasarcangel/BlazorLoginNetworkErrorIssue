@@ -49,11 +49,10 @@ namespace MyProject.Data.Identity
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-            //services.AddIdentityServer(options =>
-            //{
-            //    options.IssuerUri = "http://167.172.118.170/";
-            //})
-            services.AddIdentityServer()
+            services.AddIdentityServer(options =>
+            {
+                options.IssuerUri = $"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/";
+            })
                 .AddApiAuthorization<ApplicationUser,
                 ApplicationIdentityDbContext>(); 
             services.AddAuthentication()

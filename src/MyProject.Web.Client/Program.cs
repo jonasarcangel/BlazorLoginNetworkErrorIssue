@@ -19,12 +19,6 @@ namespace MyProject.Web.Client
 
             builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddHttpClient("MyProject.Web.ServerAPI",
-                client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
-                .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
-            builder.Services.AddHttpClient("MyProject.Web.PublicServerAPI", 
-                client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
-
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddTransient(sp => sp.GetRequiredService<IHttpClientFactory>()
                 .CreateClient("MyProject.Web.ServerAPI"));
@@ -38,14 +32,23 @@ namespace MyProject.Web.Client
             builder.Services.AddMessagesServices();
             builder.Services.AddShellServices();
 
+            var configuration = builder.Configuration.Build();
             builder.Services.AddOidcAuthentication(options =>
             {
-                options.ProviderOptions.Authority = "http://167.172.118.170/";
+	            options.ProviderOptions.Authority = $"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/";
                 // Configure your authentication provider options here.
                 // For more information, see https://aka.ms/blazor-standalone-auth
                 builder.Configuration.Bind("oidc", options.ProviderOptions);
             });
             // End MyProject.Web.Client Updates
+
+            builder.Services.AddHttpClient("MyProject.Web.ServerAPI",
+                //client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
+                client => client.BaseAddress = new Uri($"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/"))
+                .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+            builder.Services.AddHttpClient("MyProject.Web.PublicServerAPI",
+                //client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
+                client => client.BaseAddress = new Uri($"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/"));
 
             await builder.Build().RunAsync();
         }

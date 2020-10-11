@@ -118,8 +118,8 @@ namespace MyProject.Web.Server
 
             app.Use(async (ctx, next) =>
             {
-                ctx.Request.Scheme = "http";
-                ctx.Request.Host = new HostString("167.172.118.170");
+                ctx.Request.Scheme = Configuration["SiteScheme"];
+                ctx.Request.Host = new HostString(Configuration["SiteUrl"]);
                 await next();
             });
             
