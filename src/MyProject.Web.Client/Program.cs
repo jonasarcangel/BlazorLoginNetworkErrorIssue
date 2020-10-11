@@ -36,9 +36,10 @@ namespace MyProject.Web.Client
             builder.Services.AddOidcAuthentication(options =>
             {
 	            options.ProviderOptions.Authority = $"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/";
+                options.ProviderOptions.ClientId = "MyProject";
                 // Configure your authentication provider options here.
                 // For more information, see https://aka.ms/blazor-standalone-auth
-                builder.Configuration.Bind("oidc", options.ProviderOptions);
+                builder.Configuration.Bind("OidcConfiguration", options.ProviderOptions);
             });
             // End MyProject.Web.Client Updates
 
