@@ -55,10 +55,6 @@ namespace MyProject.Web.Server
             {
                 options.ForwardedHeaders = ForwardedHeaders.All;
 
-                foreach (var proxy in Configuration.GetSection("KnownProxies").AsEnumerable().Where(c => c.Value != null))
-                {
-                    options.KnownProxies.Add(IPAddress.Parse(proxy.Value));
-                }
                 options.KnownNetworks.Clear();
                 options.KnownProxies.Clear();
             });
