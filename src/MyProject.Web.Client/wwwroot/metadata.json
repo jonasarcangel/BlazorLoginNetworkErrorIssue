@@ -1,0 +1,9 @@
+{
+  "issuer": "http://167.172.118.170",
+  "jwks_uri": "http://167.172.118.170/.well-known/openid-configuration/jwks",
+  "authorization_endpoint": "http://167.172.118.170/connect/authorize",
+  "token_endpoint": "http://167.172.118.170/connect/token",
+  "userinfo_endpoint": "http://167.172.118.170/connect/userinfo",
+  "end_session_endpoint": "http://167.172.118.170/connect/endsession",
+  "check_session_iframe": "http://167.172.118.170/connect/checksession"
+}

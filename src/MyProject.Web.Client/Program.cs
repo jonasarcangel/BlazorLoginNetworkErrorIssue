@@ -35,11 +35,16 @@ namespace MyProject.Web.Client
             var configuration = builder.Configuration.Build();
             builder.Services.AddOidcAuthentication(options =>
             {
-	            options.ProviderOptions.Authority = $"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/";
+                var providerRootUrl = $"{configuration["SiteScheme"]}://{configuration["SiteUrl"]}/";
+                options.ProviderOptions.Authority = providerRootUrl;
                 options.ProviderOptions.ClientId = "MyProject";
+                options.ProviderOptions.MetadataUrl = $"{providerRootUrl}metadata.json";
+                options.ProviderOptions.PostLogoutRedirectUri = $"{providerRootUrl}logout-callback";
+                options.ProviderOptions.RedirectUri = $"{providerRootUrl}login-callback";
+
                 // Configure your authentication provider options here.
                 // For more information, see https://aka.ms/blazor-standalone-auth
-                builder.Configuration.Bind("OidcConfiguration", options.ProviderOptions);
+                //builder.Configuration.Bind("OidcConfiguration", options.ProviderOptions);
             });
             // End MyProject.Web.Client Updates
 

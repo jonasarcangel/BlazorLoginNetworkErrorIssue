@@ -21,6 +21,8 @@ using System.Reflection;
 using System.Security.Claims;
 using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
+using System.Net;
 
 namespace MyProject.Web.Server
 {
@@ -49,6 +51,17 @@ namespace MyProject.Web.Server
             services.AddMyProjectServices(Configuration);
             services.AddSignalR();
             services.AddControllersWithViews();
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = ForwardedHeaders.All;
+
+                foreach (var proxy in Configuration.GetSection("KnownProxies").AsEnumerable().Where(c => c.Value != null))
+                {
+                    options.KnownProxies.Add(IPAddress.Parse(proxy.Value));
+                }
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -88,6 +101,7 @@ namespace MyProject.Web.Server
             // MyProject configurations
             app.UseResponseCompression(); // for SignalR
             UseSwagger(app);
+            app.UseForwardedHeaders();
 
             if (env.IsDevelopment())
             {
@@ -118,6 +132,7 @@ namespace MyProject.Web.Server
 
             app.Use(async (ctx, next) =>
             {
+                ctx.SetIdentityServerOrigin($"{Configuration["SiteScheme"]}://{Configuration["SiteUrl"]}/");
                 ctx.Request.Scheme = Configuration["SiteScheme"];
                 ctx.Request.Host = new HostString(Configuration["SiteUrl"]);
                 await next();
